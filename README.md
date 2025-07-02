@@ -1,90 +1,71 @@
-# 🛡️ SQL Injection Demonstration Project (Flask + SQLite)
+# 🛡️ SQL Injection Demo – RISE Internship Project
 
-This project is created to **demonstrate SQL Injection vulnerabilities** in web applications and show **how to prevent them** using secure coding practices.
-
-## 📌 Project Description
-
-A simple login system built using **Python Flask** and **SQLite** that first simulates a **vulnerable login** mechanism and then demonstrates how to **secure it using parameterized queries**.
+This project demonstrates how an insecure login form can be exploited using SQL Injection.
 
 ---
 
-## 🧱 Project Structure
-sql_injection_demo/
-├── app.py # Flask app (vulnerable and secure version)
-├── db_setup.py # Script to create the SQLite database
-├── templates/
-│ └── login.html # Frontend login form
-└── users.db # SQLite database (auto-generated)
+## 🚀 About the Project
 
+- 🔧 Built using: **Python (Flask)** + **SQLite3**
+- 🎯 Purpose: To show how attackers can bypass authentication using SQL Injection
+- ✅ For educational and ethical use only
 
 ---
 
-## 🛠️ How to Run
+## 🧪 Demo
 
-### 🔹 Step 1: Install Dependencies
-```bash
-pip install flask
+### 🔐 Vulnerable Login Form:
+![Login Form](screenshots/login_form.png)
 
-
----
-
-## 🛠️ How to Run
-
-### 🔹 Step 1: Install Dependencies
-```bash
-pip install flask
-
-🔹 Step 3: Run the Flask App
-bash
-Copy code
-python app.py
-Go to http://127.0.0.1:5000 in your browser.
-
-💉 Test SQL Injection
-Try logging in with:
-
-Username: ' OR '1'='1
-
-Password: anything
-
-👉 In the vulnerable version, this will bypass authentication due to SQL Injection.
-
-🔐 Fix: Secure Version
-python
-Copy code
-query = "SELECT * FROM users WHERE username = ? AND password = ?"
-cursor.execute(query, (username, password))
-✅ This uses parameterized queries and blocks SQL Injection completely.
-
-📚 Awareness Material (Optional)
-Overview of SQL Injection
-
-Real-world examples
-
-Secure coding best practices
-
-Input validation tips
-
-🧑‍💻 Author
-Soham Pramod Tayade
-GitHub: Dozkiller04
-
-📃 License
-This project is for educational and awareness purposes only.
+### 💥 SQL Injection Payload:
+Username: ' OR 1=1 --
+Password: (blank)
 
 yaml
 Copy code
 
+### ✅ Successful Login (Injection Bypass):
+![SQL Injection Bypass](screenshots/sql_bypass_success.png)
+
 ---
 
-### ✅ How to Add This to Your Project
+## 🎥 Project Walkthrough (with Voice-over)
 
-1. Open your project folder.
-2. Create a file: `README.md`
-3. Copy-paste the above content into that file.
-4. Save and then run:
-```bash
-git add README.md
-git commit -m "Added README.md"
-git push
+▶️ [Click to Watch Demo Video](https://drive.google.com/file/d/1nXOBfAxCDT5numdM8Z8ycsYAjl6GpyGD/view?usp=drive_link)
 
+---
+
+## 🧠 How It Works
+
+The application is intentionally made vulnerable for demonstration:
+
+```python
+query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
+This allows attackers to manipulate the SQL query and bypass authentication.
+
+🔐 Secure Version (To prevent SQL Injection)
+In real-world applications, always use parameterized queries:
+
+python
+Copy code
+query = "SELECT * FROM users WHERE username = ? AND password = ?"
+cursor.execute(query, (username, password))
+This ensures that user input is safely handled.
+
+📁 Project Structure
+pgsql
+Copy code
+sql_injection_demo/
+├── app.py
+├── users.db
+├── templates/
+│   ├── login.html
+│   └── dashboard.html
+├── screenshots/
+│   ├── login_form.png
+│   └── sql_bypass_success.png
+├── README.md
+👨‍💻 Developed By
+Name: Soham Tayade
+
+Internship: RISE Cybersecurity & Ethical Hacking Internship – July 2025
