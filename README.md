@@ -15,7 +15,7 @@ This project demonstrates how an insecure login form can be exploited using SQL 
 ## 🧪 Demo
 
 ### 🔐 Vulnerable Login Form:
-![Login Form](screenshots/login_form.png)
+![Login Form](screenshot(Output)/Login_Live_Demo_Page.png)
 
 ### 💥 SQL Injection Payload:
 Username: ' OR 1=1 --
@@ -25,7 +25,7 @@ yaml
 Copy code
 
 ### ✅ Successful Login (Injection Bypass):
-![SQL Injection Bypass](screenshots/sql_bypass_success.png)
+![SQL Injection Bypass](screenshot(Output)/Sql_injection_Admin_page.png)
 
 ---
 
